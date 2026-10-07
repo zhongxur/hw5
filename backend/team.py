@@ -12,6 +12,7 @@ the board feed and appended to output/audit_trail.json by events.emit().
 from __future__ import annotations
 
 import json
+import sys
 import uuid
 from functools import lru_cache
 from typing import Any
@@ -52,7 +53,7 @@ def mcp_toolset() -> MCPToolset:
     if _mcp is None:
         from fastmcp.client.transports import StdioTransport
         transport = StdioTransport(
-            command=str(ROOT / ".venv" / "bin" / "python") if (ROOT / ".venv").exists() else "python",
+            command=sys.executable,  # same interpreter as the backend, so fastmcp is installed
             args=[str(MCP_SERVER)],
             env={"FASTMCP_LOG_LEVEL": "WARNING", "CAMPUS_DB": str(ROOT / "data" / "campus_customs_new.db")},
             cwd=str(ROOT),
