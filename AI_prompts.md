@@ -176,5 +176,12 @@ the tools enforce them. Inventory still *tried* the $264 purchase twice.
 > backend, the board and the full three-ticket run. Commit locally and check with me before
 > creating the public GitHub repo and pushing; then put the URL in `output/github_url.txt`.
 
-### Follow-up prompt note
-(Filled in at push time.)
+### Follow-up prompt
+> Check the whole assignment against every problem's requirements before pushing; if nothing is
+> missing, push it.
+
+What was lacking after the first try: the backend started the MCP subprocess with the project
+`.venv` path, falling back to plain `python`, which could miss the dependencies in another
+environment. It now uses the backend's own interpreter. A fresh clone was checked for every required
+file and for a leaked `.env`. The repo is public at https://github.com/zhongxur/hw5 (also in
+`output/github_url.txt`).
