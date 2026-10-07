@@ -1,0 +1,28 @@
+# secrets
+.env
+.env.*
+!.env.example
+
+# databases: BOTH data/campus_customs.db and data/campus_customs_new.db are committed on purpose
+*.db-journal
+*.db-wal
+*.db-shm
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Node / Vite
+node_modules/
+frontend/dist/
+*.tsbuildinfo
+
+# local run artifacts
+output/audit_trail.tmp
+output/*.corrupt.*.json
+
+# OS / editors
+.DS_Store
+.vscode/
+.idea/

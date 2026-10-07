@@ -1,0 +1,102 @@
+{
+  "run_id": "4d48132b",
+  "ticket_id": 101,
+  "status": "awaiting_approval",
+  "report": {
+    "ticket_id": 101,
+    "outcome": "Ticket 101 is awaiting human approval of the $840.00 payment for overdue invoice 501. Size S of CC-TEE-WHITE is out of stock; shipment is not promised while the invoice hold remains. Customer Service queued Tauhid Zaman a reply with other available sizes and the conditional September 5 lead-time estimate.",
+    "contributions": [
+      {
+        "agent": "boss",
+        "did": "Reviewed ticket 101 and confirmed the customer-order owner, checked pending actions and queued messages, and recorded the outcome."
+      },
+      {
+        "agent": "customer_service",
+        "did": "Handled the customer request and queued Tauhid Zaman a reply offering available sizes and noting the conditional lead-time estimate."
+      },
+      {
+        "agent": "inventory",
+        "did": "Reported size S out of stock and sizes M, L, and XL available; provided a September 5 lead-time estimate."
+      },
+      {
+        "agent": "accounting",
+        "did": "Prepared an $840.00 payment for overdue invoice 501; it is pending human approval."
+      }
+    ],
+    "human_approvals_needed": [
+      "$840.00 payment for invoice 501"
+    ],
+    "customer_message_queued": true
+  },
+  "delegation_path": [
+    "boss->customer_service",
+    "customer_service->inventory",
+    "customer_service->accounting",
+    "inventory->accounting"
+  ],
+  "tools_by_agent": {
+    "boss": [
+      "get_desk_today",
+      "get_ticket",
+      "list_pending_actions",
+      "list_customer_messages",
+      "record_ticket_outcome"
+    ],
+    "customer_service": [
+      "get_desk_today",
+      "get_ticket",
+      "list_pending_actions",
+      "check_stock",
+      "queue_customer_message"
+    ],
+    "inventory": [
+      "get_ticket",
+      "check_stock",
+      "get_invoice",
+      "get_desk_today"
+    ],
+    "accounting": [
+      "get_ticket",
+      "get_invoice",
+      "get_desk_today",
+      "list_payments",
+      "list_pending_actions",
+      "get_cash_position",
+      "prepare_invoice_payment"
+    ]
+  },
+  "usage": {
+    "requests": 23,
+    "input_tokens": 43863,
+    "output_tokens": 3731,
+    "total_tokens": 47594
+  },
+  "pending_actions": [
+    {
+      "id": 1,
+      "ticket_id": 101,
+      "kind": "invoice_payment",
+      "ref_id": 501,
+      "amount": 840.0,
+      "description": "Pay invoice 501 to Bulldog Print Co \u2014 Rush reprint CC-TEE-WHITE S ($840.00, due 2026-08-28, 3 days overdue)",
+      "payload": {
+        "vendor_id": 1
+      },
+      "requested_by": "accounting",
+      "status": "pending",
+      "created_at": "2026-10-06T22:42:50-04:00",
+      "decided_at": null,
+      "decided_by": null
+    }
+  ],
+  "customer_messages": [
+    {
+      "id": 1,
+      "ticket_id": 101,
+      "recipient": "Tauhid Zaman",
+      "message": "Hi Tauhid, thanks for reaching out about the Bulldog tee. Size S is currently out of stock; sizes M, L, and XL are available if one of those works for you. The reprint payment is awaiting manager approval, so we can\u2019t promise shipment yet; the current lead-time estimate for size S is September 5, subject to the hold being cleared. Would you prefer an available size or to wait for size S?\n\nCampus Customs",
+      "status": "queued",
+      "created_at": "2026-10-06T22:43:02-04:00"
+    }
+  ]
+}

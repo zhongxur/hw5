@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Campus Customs — Resolved Board Screenshots</title>
+<style>
+  :root { --navy:#0f2d52; --paper:#f6f1e7; --card:#fffdf8; --line:#e2d8c4; --muted:#6d655a; --ok:#2f7d5b; }
+  * { box-sizing:border-box; }
+  body { margin:0; font:15px/1.55 -apple-system, "Segoe UI", Inter, system-ui, sans-serif; background:var(--paper); color:#1d1a16; }
+  header { background:var(--navy); color:#f6f1e7; padding:22px 28px; }
+  header h1 { margin:0; font-family:Georgia, serif; font-size:26px; }
+  header p { margin:4px 0 0; opacity:.75; font-size:14px; }
+  nav { display:flex; gap:8px; padding:14px 28px; flex-wrap:wrap; }
+  nav a { text-decoration:none; font-weight:600; color:var(--navy); background:var(--card); border:1px solid var(--line); padding:6px 14px; border-radius:999px; }
+  main { max-width:1280px; margin:0 auto; padding:0 28px 60px; }
+  section { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:16px 18px 20px; margin:18px 0; }
+  h2 { font-family:Georgia, serif; margin:0 0 4px; font-size:22px; }
+  .meta { color:var(--muted); font-size:14px; margin:0 0 10px; }
+  .ok { color:var(--ok); font-weight:700; }
+  img { display:block; width:100%; height:auto; border:1px solid var(--line); border-radius:10px; }
+  table { border-collapse:collapse; font-size:14px; margin:6px 0 0; }
+  td, th { padding:4px 12px 4px 0; text-align:left; }
+  td.num { font-family: ui-monospace, Menlo, monospace; text-align:right; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Campus Customs — the React board after each ticket was resolved</h1>
+  <p>Full three-ticket run on 2026-10-06 after Reset database · desk date 2026-08-31 · board at http://localhost:5173, backend at :8000</p>
+</header>
+<nav>
+  <a href="#t101">Ticket 101</a><a href="#t102">Ticket 102</a><a href="#t103">Ticket 103</a>
+</nav>
+<main>
+  <section>
+    <h2>Run summary</h2>
+    <table>
+      <tr><th>Ticket</th><th>First agent</th><th>Human approval</th><th>Checking after</th><th>Status</th></tr>
+      <tr><td>Start (after reset)</td><td></td><td></td><td class="num">$3,400.00</td><td></td></tr>
+      <tr><td>101 Bulldog tee</td><td>Customer Service</td><td>#1 invoice 501 −$840.00</td><td class="num">$2,560.00</td><td class="ok">resolved</td></tr>
+      <tr><td>102 Rent due</td><td>Facilities</td><td>#2 rent −$2,400.00</td><td class="num">$160.00</td><td class="ok">resolved</td></tr>
+      <tr><td>103 Bulk hoodie discount</td><td>Accounting</td><td>#3 price override $0.00</td><td class="num">$160.00</td><td class="ok">resolved</td></tr>
+    </table>
+  </section>
+
+  <section id="t101">
+    <h2>Ticket 101 · Bulldog tee</h2>
+    <p class="meta">Boss → Customer Service → Inventory / Accounting; Inventory → Accounting. Invoice 501 ($840.00) approved; the till shows $2,560.00 and the receipt tape shows one payment.</p>
+    <img src="resolved_board_images/ticket_101.png" alt="React board with ticket 101 resolved">
+  </section>
+
+  <section id="t102">
+    <h2>Ticket 102 · Rent due</h2>
+    <p class="meta">Boss → Facilities → Accounting (→ Facilities). Rent ($2,400.00) approved; the till shows $160.00. Inventory and Customer Service stayed idle.</p>
+    <img src="resolved_board_images/ticket_102.png" alt="React board with ticket 102 resolved">
+  </section>
+
+  <section id="t103">
+    <h2>Ticket 103 · Bulk hoodie discount</h2>
+    <p class="meta">Boss → Accounting → Inventory → Accounting → Customer Service. 15% override at $49.30 approved ($0 cash); the $264 reprint was refused by the cash rule. All three stubs carry the RESOLVED stamp.</p>
+    <img src="resolved_board_images/ticket_103.png" alt="React board with ticket 103 resolved">
+  </section>
+
+  <p class="meta">Note: the board's live feed is in memory, so these were captured from the same backend session as the run. The
+    full step-by-step record of every agent and click is in <code>audit_trail.json</code>, and the per-ticket results are in
+    <code>resolved_tickets.json</code>.</p>
+</main>
+</body>
+</html>

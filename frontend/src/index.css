@@ -1,0 +1,33 @@
+:root {
+  --navy: #0f2d52;
+  --navy-2: #1d4475;
+  --paper: #f6f1e7;
+  --paper-2: #efe7d6;
+  --card: #fffdf8;
+  --ink: #1d1a16;
+  --muted: #6d655a;
+  --line: #e2d8c4;
+  --stamp: #b3261e;
+  --ok: #2f7d5b;
+
+  --c-boss: #0f2d52;
+  --c-customer_service: #6b4c9a;
+  --c-inventory: #2f7d5b;
+  --c-accounting: #a8680f;
+  --c-facilities: #a4452c;
+  --c-human: #b3261e;
+
+  font-family: 'Inter', system-ui, sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; min-height: 100vh; background:
+  radial-gradient(circle at 20% 0%, rgba(15,45,82,.06), transparent 40%),
+  repeating-linear-gradient(0deg, transparent 0 27px, rgba(15,45,82,.035) 27px 28px),
+  var(--paper); }
+button { font: inherit; cursor: pointer; }
+button:disabled { cursor: not-allowed; opacity: .55; }
+code, pre { font-family: 'IBM Plex Mono', ui-monospace, monospace; }
